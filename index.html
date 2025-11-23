@@ -46,9 +46,156 @@
       }
     })();
   </script>
+
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0;}
+
+    body{
+      min-height:100vh;
+      font-family:var(--font-body);
+      font-size:13px;
+      font-weight:300;
+      background:var(--bg);
+      color:var(--ink);
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:40px 20px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    /* Soft shadowy overlay background (optional) */
+    body::before{
+      content:"";
+      position:absolute;
+      inset:-20%;
+      background:
+        radial-gradient(circle at 15% 10%, rgba(0,0,0,0.06), transparent 55%),
+        radial-gradient(circle at 80% 90%, rgba(0,0,0,0.04), transparent 55%);
+      opacity:0.65;
+      mix-blend-mode:multiply;
+      pointer-events:none;
+    }
+
+    .shell{
+      position:relative;
+      z-index:1;
+      max-width:580px;
+      text-align:center;
+      background: rgba(255,255,255,0.22);
+      padding: 32px 28px;
+      border-radius: 18px;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      box-shadow: 0 8px 22px rgba(0,0,0,0.12);
+    }
+    .frosted{
+      position: absolute;
+      inset: 0;
+      backdrop-filter: blur(14px) saturate(140%);
+      -webkit-backdrop-filter: blur(14px) saturate(140%);
+      background: rgba(255,255,255,0.28);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+
+    .logo-mark{
+      font-family:var(--font-heading);
+      font-size:18px;
+      letter-spacing:0.18em;
+      text-transform:uppercase;
+      color:var(--muted);
+      margin-bottom:40px;
+    }
+
+    .overline{
+      font-size:11px;
+      letter-spacing:0.18em;
+      text-transform:uppercase;
+      color:var(--muted);
+      margin-bottom:2px;
+    }
+
+    h1{
+      font-family: var(--font-heading);
+      font-style: italic;
+      font-weight: 400;
+      font-size:48px;
+      letter-spacing:0.015em;
+      color:var(--ink);
+      margin-bottom:18px;
+    }
+
+    .divider{
+      width:1px;
+      height:42px;
+      margin:0 auto 22px;
+      background:rgba(13,26,45,0.3);
+    }
+
+    .copy{
+      font-size:14px;
+      line-height:1.7;
+      color:var(--muted);
+      max-width:460px;
+      margin:0 auto 26px;
+    }
+
+    .copy span{
+      display:block;
+      margin-top:4px;
+    }
+
+    .btn-wrap{
+      display:flex;
+      justify-content:center;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:11px 32px;
+      border-radius:999px;
+      border:1px solid rgba(13,26,45,0.10);
+      background:var(--line); /* Mist primary */
+      color:var(--ink);
+      font-size:13px;
+      letter-spacing:0.16em;
+      text-transform:uppercase;
+      text-decoration:none;
+      cursor:pointer;
+      transition:transform 0.1s ease, box-shadow 0.15s ease, background 0.15s ease, opacity 0.15s ease;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.10);
+    }
+
+    .btn:hover{
+      transform:translateY(-1px);
+      box-shadow: 0 5px 12px rgba(0,0,0,0.12);
+      opacity:0.96;
+    }
+
+    .btn:active{
+      transform:translateY(1px) scale(0.98);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+      opacity:0.92;
+    }
+
+    @media(max-width:600px){
+      body{padding:32px 18px;}
+      h1{font-size:32px;}
+      .copy{font-size:13px;}
+    }
+  </style>
 </head>
 
-<body>
+<body style="background:url('/library/scenes/hero/comingsoon.jpg') center/cover no-repeat fixed;">
+  <div class="frosted">
   <div class="shell">
     <div class="logo-mark">
       <img src="/vmark-light.svg" alt="Vignette logo" style="height:40px;width:auto;opacity:0.92;" />
@@ -65,6 +212,7 @@
     <div class="btn-wrap">
       <a class="btn" href="https://mailchi.mp/05879d32c10c/vignette-early-access">Join early access</a>
     </div>
+  </div>
   </div>
 </body>
 </html>
